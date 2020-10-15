@@ -24,33 +24,7 @@
     - name: shell
       shell: sudo postgresql-setup initdb
       register: shell_result
-    - name: debug
-      debug:
-        var: shell_result.stdout_lines
-  # handlers:
-  #   - name: shell
-  #     shell: ls -la
-  #     register: shell_result
-  #   - name: debug
-  #     debug:
-  #       var: shell_result.stdout_lines
-
-        
-    # - name: Create user
-    #   postgresql_user:
-    #     name: "jelena-dokic"
-    #     password: "test"
-    #     encrypted: True
-    #   become_user: postgres
-    # - name: Create db
-    #   postgresql_db:
-    #     name: "psql-db"
-    #     owner: "jelena-dokic"
-    #     template: template0
-    #     encoding: UTF8
-    #     lc_collate: 'en_US.UTF-8'
-    #     lc_ctype: 'en_US.UTF-8'
-    #   become_user: postgres
+      ignore_errors: yes
 
 
     # - name: shell
