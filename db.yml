@@ -23,7 +23,10 @@
       service: name=postgresql state=restarted enabled=yes
     - name: shell
       shell: sudo postgresql-setup initdb
-      ignore_errors: true
+      register: shell_result
+    - name: debug
+      debug:
+        var: shell_result.stdout_lines
   # handlers:
   #   - name: shell
   #     shell: ls -la
